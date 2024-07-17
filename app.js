@@ -77,16 +77,17 @@ const html = `
   </head>
   <body>
     <section>
-      Hello from Render!
+      Hello from Render2!
     </section>
   </body>
 </html>
 `;
 
-
+/*
 app.get('/', function (req, res) {
   res.render('index', {});
 });
+*/
 
 app.post('/get-lists', async (req, res) => {
   try {
@@ -231,7 +232,8 @@ app.post('/get-emails', async (req, res) => {
     res.status(500).json({ message: 'Error fetching data from Campaigner API' });
   }
 });
-
+/*
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
-});
+});*/
+
