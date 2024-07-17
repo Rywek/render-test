@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require('cors');
+//const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -19,10 +19,10 @@ const apiKeys = {
   ceremoniesandevents: 'df09cbc9-14b2-49b0-880d-ca2f371cb25d',
   leadership: '54bfdff7-7601-4a19-8367-905095d0b167',
   uOsurveys: '728159b5-a939-4fa2-999f-b5d0db7c675f',
-}
+};
 
-app.use(cors())
-app.use(bodyParser.json())
+//app.use(cors());
+app.use(bodyParser.json());
 
 
 app.get("/", (req, res) => res.type('html').send(html));
@@ -81,57 +81,57 @@ const html = `
     </section>
   </body>
 </html>
-`
+`;
 
 
 app.get('/', function (req, res) {
-  res.render('index', {})
-})
+  res.render('index', {});
+});
 
 app.post('/get-lists', async (req, res) => {
   try {
-    const Name = req.body.Name
-    const Account = req.body.Accountid
+    const Name = req.body.Name;
+    const Account = req.body.Accountid;
 
-    let selectedApiKey
+    let selectedApiKey;
     if (Account === 582645) {
-      selectedApiKey = apiKeys.devofficekey
+      selectedApiKey = apiKeys.devofficekey;
     }
     if (Account === 582045) {
-      selectedApiKey = apiKeys.presidentkey
+      selectedApiKey = apiKeys.presidentkey;
     }
     if (Account === 578195) {
-      selectedApiKey = apiKeys.communcationDinternalkey
+      selectedApiKey = apiKeys.communcationDinternalkey;
     }
     if (Account === 582065) {
-      selectedApiKey = apiKeys.communcationDexternalkey
+      selectedApiKey = apiKeys.communcationDexternalkey;
     }
     if (Account === 588235) {
-      selectedApiKey = apiKeys.alumnigeneralkey
+      selectedApiKey = apiKeys.alumnigeneralkey;
     }
     if (Account === 588260) {
-      selectedApiKey = apiKeys.alumniaroskey
+      selectedApiKey = apiKeys.alumniaroskey;
     }
     if (Account === 598700) {
-      selectedApiKey = apiKeys.uointernationalkey
+      selectedApiKey = apiKeys.uointernationalkey;
     }
     if (Account === 777832) {
-      selectedApiKey = apiKeys.uOsurveys
+      selectedApiKey = apiKeys.uOsurveys;
     }
     if (Account === 578195) {
-      selectedApiKey = apiKeys.vpacademic
+      selectedApiKey = apiKeys.vpacademic;
     }
     if (Account === 746765) {
-      selectedApiKey = apiKeys.vrrecherche
+      selectedApiKey = apiKeys.vrrecherche;
     }
     if (Account === 760138) {
-      selectedApiKey = apiKeys.hrmodernisation
+      selectedApiKey = apiKeys.hrmodernisation;
     }
     if (Account === 772710) {
-      selectedApiKey = apiKeys.ceremoniesandevents
+      selectedApiKey = apiKeys.ceremoniesandevents;
     }
     if (Account === 776515) {
-      selectedApiKey = apiKeys.leadership
+      selectedApiKey = apiKeys.leadership;
     }
 
     const response = await fetch('https://edapi.campaigner.com/v1/Lists/', {
@@ -144,70 +144,70 @@ app.post('/get-lists', async (req, res) => {
       body: JSON.stringify({
         Name,
       }),
-    })
+    });
 
-    const data = await response.json()
+    const data = await response.json();
 
-    res.json(data)
+    res.json(data);
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ message: 'Error fetching data from Campaigner API' })
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching data from Campaigner API' });
   }
-})
+});
 
 app.post('/get-emails', async (req, res) => {
   try {
-    const Emails = req.body.emailsList
-    const ListID = req.body.listid
-    const accountID = req.body.accountno
-    console.log(Emails)
-    console.log(ListID)
-    console.log(accountID)
+    const Emails = req.body.emailsList;
+    const ListID = req.body.listid;
+    const accountID = req.body.accountno;
+    console.log(Emails);
+    console.log(ListID);
+    console.log(accountID);
 
-    let selectedApiKeyEmails
+    let selectedApiKeyEmails;
     if (accountID === 582645) {
-      selectedApiKeyEmails = apiKeys.devofficekey
+      selectedApiKeyEmails = apiKeys.devofficekey;
     }
     if (accountID === 582045) {
-      selectedApiKeyEmails = apiKeys.presidentkey
+      selectedApiKeyEmails = apiKeys.presidentkey;
     }
     if (accountID === 578195) {
-      selectedApiKeyEmails = apiKeys.communcationDinternalkey
+      selectedApiKeyEmails = apiKeys.communcationDinternalkey;
     }
     if (accountID === 582065) {
-      selectedApiKeyEmails = apiKeys.communcationDexternalkey
+      selectedApiKeyEmails = apiKeys.communcationDexternalkey;
     }
     if (accountID === 588235) {
-      selectedApiKeyEmails = apiKeys.alumnigeneralkey
+      selectedApiKeyEmails = apiKeys.alumnigeneralkey;
     }
     if (accountID === 588260) {
-      selectedApiKeyEmails = apiKeys.alumniaroskey
+      selectedApiKeyEmails = apiKeys.alumniaroskey;
     }
     if (accountID === 598700) {
-      selectedApiKeyEmails = apiKeys.uointernationalkey
+      selectedApiKeyEmails = apiKeys.uointernationalkey;
     }
     if (accountID === 777832) {
-      selectedApiKeyEmails = apiKeys.uOsurveys
+      selectedApiKeyEmails = apiKeys.uOsurveys;
     }
     if (accountID === 578195) {
-      selectedApiKeyEmails = apiKeys.vpacademic
+      selectedApiKeyEmails = apiKeys.vpacademic;
     }
     if (accountID === 746765) {
-      selectedApiKeyEmails = apiKeys.vrrecherche
+      selectedApiKeyEmails = apiKeys.vrrecherche;
     }
     if (accountID === 760138) {
-      selectedApiKeyEmails = apiKeys.hrmodernisation
+      selectedApiKeyEmails = apiKeys.hrmodernisation;
     }
     if (accountID === 772710) {
-      selectedApiKeyEmails = apiKeys.ceremoniesandevents
+      selectedApiKeyEmails = apiKeys.ceremoniesandevents;
     }
     if (accountID === 776515) {
-      selectedApiKeyEmails = apiKeys.leadership
+      selectedApiKeyEmails = apiKeys.leadership;
     }
 
     const subscriberData2 = {
       EmailAddresses: Emails,
-    }
+    };
 
     const response = await fetch(
       `https://edapi.campaigner.com/v1/Lists/${ListID}/AddEmails`,
@@ -221,18 +221,18 @@ app.post('/get-emails', async (req, res) => {
 
         body: JSON.stringify(subscriberData2),
       }
-    )
+    );
 
-    const data = await response.json()
+    const data = await response.json();
 
-    res.json(data)
+    res.json(data);
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ message: 'Error fetching data from Campaigner API' })
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching data from Campaigner API' });
   }
-})
+});
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`)
-})
+  console.log(`Server listening on port ${port}`);
+});
 
