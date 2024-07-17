@@ -24,16 +24,16 @@ const apiKeys = {
 app.use(cors());
 app.use(bodyParser.json());
 
-
+/*
 app.get("/", function (req, res) {
   res.type('html').send(html);
 });
+*/
 
-/*
 app.get('/', function (req, res) {
   res.render('index', {});
 });
-*/
+
 
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
