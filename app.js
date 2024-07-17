@@ -1,5 +1,5 @@
 const express = require("express");
-//const cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -21,7 +21,7 @@ const apiKeys = {
   uOsurveys: '728159b5-a939-4fa2-999f-b5d0db7c675f',
 };
 
-//app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
 
 
