@@ -24,22 +24,23 @@ const apiKeys = {
 app.use(cors());
 app.use(bodyParser.json());
 
+/*app.listen('9000');*/
 
 /*app.get("/", function (req, res) {
   res.type('html').send(html);
 });*/
 
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
   res.render('index', {})
-});
+});*/
 
 
 /*
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));*/
 
 /*server.keepAliveTimeout = 120 * 1000;
-server.headersTimeout = 120 * 1000;*/
+server.headersTimeout = 120 * 1000;
 
 const html = `<!DOCTYPE html>
 <html lang="en" dir="ltr">
