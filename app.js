@@ -138,9 +138,9 @@ const html = `<!DOCTYPE html>
         )
         const result = await response.text()
         const list = JSON.parse(result).ListID
-        const concat = "${result}".split(',')
+        const concat = '${result}'.split(',')
         console.log(result)
-        uploadData.innerHTML = "List Uploaded: ${concat[1]}"
+        uploadData.innerHTML = 'List Uploaded: ${concat[1]}'
         splitLargeArray(listOfEmails).forEach((element) => {
           getEmails(element, list, accountid)
         })
@@ -233,7 +233,7 @@ const html = `<!DOCTYPE html>
         }
         reader.readAsBinaryString(file)
       }
-      emailCountLabel.innerHTML = "Total emails: ${emailCount}"
+      emailCountLabel.innerHTML = 'Total emails: ${emailCount}'
     })
   </script>
 </body>
@@ -387,4 +387,3 @@ app.post('/get-emails', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });*/
-
