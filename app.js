@@ -139,9 +139,9 @@ app.post('/upload-emails', async (req, res) => {
     const Emails = req.body.emailsList;
     const ListID = req.body.listid;
     const accountID = req.body.accountno;
-    console.log(Emails);
-    console.log(ListID);
-    console.log(accountID);
+    //console.log(Emails);
+    //console.log(ListID);
+    //console.log(accountID);
 
 	let selectedApiKeyUpdateEmails;
      switch (accountID){
@@ -190,6 +190,8 @@ app.post('/upload-emails', async (req, res) => {
 		body: JSON.stringify({ "Subscribers": Subscribers }, null, 2)
 	  }
 	);
+	
+	console.log(JSON.stringify({ "Subscribers": Subscribers }, null, 2));
 	
     const dataUpdate = await responseUpdate.json();
     
