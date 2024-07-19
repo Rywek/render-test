@@ -76,7 +76,7 @@ app.post('/get-lists', async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error fetching data from Campaigner API' });
+    res.status(500).json({ message: 'Error fetching data from Campaigner API in get-lists' });
   }
 });
 
@@ -115,11 +115,11 @@ app.post('/get-emails', async (req, res) => {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
-		  'ApiKey': apiKey,
+		  ApiKey: selectedApiKeyEmails,
 		},
 		body: JSON.stringify({
 		  Contact: {
-			EmailAddress: email
+			EmailAddress: subscriberData2
 		  }
 		})
 	  });
@@ -145,7 +145,7 @@ app.post('/get-emails', async (req, res) => {
     res.json(dataUpdate);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error fetching data from Campaigner API' });
+    res.status(500).json({ message: 'Error fetching data from Campaigner API in get-emails' });
   }
 });
 
