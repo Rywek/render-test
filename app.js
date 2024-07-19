@@ -111,18 +111,15 @@ app.post('/get-emails', async (req, res) => {
       EmailAddresses: Emails,
     };
 
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Contacts/', {
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
 		  ApiKey: selectedApiKeyEmails,
 		},
-		body: JSON.stringify({
-		  Contact: {
-			EmailAddress: subscriberData2
-		  }
-		})
-	  });
+		body: JSON.stringify(subscriberData2)
+	  })
+	  ;
 
     const response = await fetch(
       `https://edapi.campaigner.com/v1/Lists/${ListID}/AddEmails`,
