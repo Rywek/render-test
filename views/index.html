@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Campaigner List Upload</h1>
+  <h1>Campaigner List Upload 2</h1>
   <form autocomplete="off" id="campaigner-form">
     <div>
       <input type="checkbox" id="582045" name="List2" value="OOP" />
@@ -99,7 +99,8 @@
         console.log(result)
         uploadData.innerHTML = `List Uploaded: ${concat[1]}`
         splitLargeArray(listOfEmails).forEach((element) => {
-          getEmails(element, list, accountid)
+          uploadEmails(element, list, accountid);
+          getEmails(element, list, accountid);
         })
       } catch (error) {
         console.error(error)
@@ -123,6 +124,35 @@
       try {
         const response = await fetch(
           'https://campaignerapilists.onrender.com/get-emails',
+          requestOptions
+        )
+        const result = await response.text()
+        console.log(result)
+        waitingmessage.innerHTML = ''
+        uploadName.innerHTML = result
+      } catch (error) {
+        console.error(error)
+        uploadName.innerHTML = error
+      }
+    }
+	
+	async function uploadEmails(emailsList, listid, accountno) {
+      const myHeaders = new Headers()
+      myHeaders.append('Content-Type', 'application/json')
+      const raw = JSON.stringify({
+        emailsList,
+        listid,
+        accountno,
+      })
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow',
+      }
+      try {
+        const response = await fetch(
+          'https://campaignerapilists.onrender.com/upload-emails',
           requestOptions
         )
         const result = await response.text()
