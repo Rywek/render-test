@@ -160,12 +160,13 @@ app.post('/upload-emails', async (req, res) => {
       case 776515: selectedApiKeyEmails = apiKeys.leadership; break;
       default: throw new Error('Invalid account ID 2');
     }
+	
 
     const subscriberData = {
       EmailAddress: Emails,
     };
 	
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Import/Subscribers', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
