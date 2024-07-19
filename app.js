@@ -30,10 +30,12 @@ app.use(bodyParser.json());
   res.type('html').send(html);
 });*/
 
+app.set('view engine', 'ejs');
 
-/*app.get('/', function (req, res) {
+
+app.get('/', function (req, res) {
   res.render('index', {})
-});*/
+});
 
 
 /*
