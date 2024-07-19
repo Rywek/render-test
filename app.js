@@ -170,7 +170,7 @@ app.post('/upload-emails', async (req, res) => {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
-		  ApiKey: selectedApiKeyEmails,
+		  ApiKey: selectedApiKeyUpdateEmails,
 		},
 		body: JSON.stringify(subscriberData)
 	  }
