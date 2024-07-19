@@ -25,21 +25,21 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.get("/", function (req, res) {
+/*app.get("/", function (req, res) {
   res.type('html').send(html);
-});
-
-
-/*app.get('/', function (req, res) {
-  res.render('index.html');
 });*/
 
 
+app.get('/', function (req, res) {
+  res.render('index', {})
+});
 
-const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-server.keepAliveTimeout = 120 * 1000;
-server.headersTimeout = 120 * 1000;
+/*
+const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));*/
+
+/*server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;*/
 
 const html = `<!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -388,7 +388,7 @@ app.post('/get-emails', async (req, res) => {
     res.status(500).json({ message: 'Error fetching data from Campaigner API' });
   }
 });
-/*
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
-});*/
+});
