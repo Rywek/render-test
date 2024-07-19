@@ -162,10 +162,24 @@ app.post('/upload-emails', async (req, res) => {
     }
 	
 
-    const subscriberData = {
-        
-		EmailAddresses: Emails,
-    };
+    /*const subscriberData = {
+        "Subscribers": [
+		{
+		  "EmailAddress":"contact1@example.net"
+		},
+		{
+		  "EmailAddress":"contact2@example.net"
+		}
+	  ]
+		EmailAddress: Emails,
+    };*/
+	
+	const Subscribers = [];
+	// Loop through each email address and create the subscriberData for each
+	Emails.forEach(email => {
+		const subscriberData = { EmailAddress: email };
+		Subscribers.push(subscriberData);
+	});
 	
 	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
 		method: 'POST',
@@ -173,10 +187,10 @@ app.post('/upload-emails', async (req, res) => {
 		  'Content-Type': 'application/json',
 		  ApiKey: selectedApiKeyUpdateEmails,
 		},
-		body: JSON.stringify(subscriberData)
+		body: JSON.stringify({ "Subscribers": Subscribers }, null, 2)
 	  }
 	);
-	console.log(JSON.stringify(subscriberData));
+	
     const dataUpdate = await responseUpdate.json();
     
     res.json(dataUpdate);
