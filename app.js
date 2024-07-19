@@ -106,24 +106,10 @@ app.post('/get-emails', async (req, res) => {
       case 776515: selectedApiKeyEmails = apiKeys.leadership; break;
       default: throw new Error('Invalid account ID 2');
     }
-
-    const subscriberData = {
-      EmailAddress: Emails,
-    };
 	
 	const subscriberData2 = {
       EmailAddresses: Emails,
     };
-
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
-		method: 'POST',
-		headers: {
-		  'Content-Type': 'application/json',
-		  ApiKey: selectedApiKeyEmails,
-		},
-		body: JSON.stringify(subscriberData)
-	  })
-	  ;
 
     const response = await fetch(
       `https://edapi.campaigner.com/v1/Lists/${ListID}/AddEmails`,
@@ -139,11 +125,9 @@ app.post('/get-emails', async (req, res) => {
       }
     );
 
-    const dataUpdate = await responseUpdate.json();
-    const data = await response.json();
+    const data2 = await response.json();
 
-    res.json(data);
-    res.json(dataUpdate);
+    res.json(data2);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching data from Campaigner API in get-emails' });
