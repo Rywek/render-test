@@ -45,6 +45,7 @@
     </div>
   </form>
   <p class="waiting"></p>
+  <p class="upload-status-email"></p>
   <p class="upload-status-name"></p>
   <p class="upload-status-data"></p>
     <script
@@ -54,6 +55,7 @@
     ></script>
   <script type="text/javascript" >
     const uploadName = document.querySelector('.upload-status-name')
+    const uploadEmail = document.querySelector('.upload-status-email')
     const uploadData = document.querySelector('.upload-status-data')
     const waitingmessage = document.querySelector('.waiting')
     const listOfEmails = []
@@ -158,10 +160,10 @@
         const result = await response.text()
         console.log(result)
         waitingmessage.innerHTML = ''
-        uploadName.innerHTML = result
+        uploadEmail.innerHTML = result
       } catch (error) {
         console.error(error)
-        uploadName.innerHTML = error
+        uploadEmail.innerHTML = error
       }
     }
 
