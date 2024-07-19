@@ -30,7 +30,7 @@ app.use(bodyParser.json());
   res.type('html').send(html);
 });*/
 
-app.use(express.static('views')));
+app.use(express.static('views'));
 
 app.set('view engine', 'ejs');
 
