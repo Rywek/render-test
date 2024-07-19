@@ -111,7 +111,7 @@ app.post('/get-emails', async (req, res) => {
       EmailAddresses: Emails,
     };
 
-	const response = await fetch('https://edapi.campaigner.com/v1/Contacts/', {
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Contacts/', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
@@ -138,9 +138,11 @@ app.post('/get-emails', async (req, res) => {
       }
     );
 
+    const dataUpdate = await responseUpdate.json();
     const data = await response.json();
 
     res.json(data);
+    res.json(dataUpdate);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching data from Campaigner API' });
