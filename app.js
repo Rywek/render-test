@@ -175,7 +175,7 @@ app.post('/upload-emails', async (req, res) => {
 		body: JSON.stringify(subscriberData)
 	  }
 	);
-
+	console.log(JSON.stringify(subscriberDate));
     const dataUpdate = await responseUpdate.json();
     
     res.json(dataUpdate);
