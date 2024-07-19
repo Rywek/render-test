@@ -150,6 +150,56 @@ app.post('/get-emails', async (req, res) => {
   }
 });
 
+app.post('/upload-emails', async (req, res) => {
+  try {
+    const Emails = req.body.emailsList;
+    const ListID = req.body.listid;
+    const accountID = req.body.accountno;
+    console.log(Emails);
+    console.log(ListID);
+    console.log(accountID);
+
+	let selectedApiKeyEmails;
+     switch (accountID){
+      case 582645: selectedApiKeyEmails = apiKeys.devofficekey; break;
+      case 582045: selectedApiKeyEmails = apiKeys.presidentkey; break;
+      case 578195: selectedApiKeyEmails = apiKeys.communcationDinternalkey; break;
+      case 582065: selectedApiKeyEmails = apiKeys.communcationDexternalkey; break;
+      case 588235: selectedApiKeyEmails = apiKeys.alumnigeneralkey; break;
+      case 588260: selectedApiKeyEmails = apiKeys.alumniaroskey; break;
+      case 598700: selectedApiKeyEmails = apiKeys.uointernationalkey; break;
+      case 777832: selectedApiKeyEmails = apiKeys.uOsurveys; break;
+      case 578195: selectedApiKeyEmails = apiKeys.vpacademic; break;
+      case 746765: selectedApiKeyEmails = apiKeys.vrrecherche; break;
+      case 760138: selectedApiKeyEmails = apiKeys.hrmodernisation; break;
+      case 772710: selectedApiKeyEmails = apiKeys.ceremoniesandevents; break;
+      case 776515: selectedApiKeyEmails = apiKeys.leadership; break;
+      default: throw new Error('Invalid account ID 2');
+    }
+
+    const subscriberData = {
+      EmailAddress: Emails,
+    };
+	
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
+		method: 'POST',
+		headers: {
+		  'Content-Type': 'application/json',
+		  ApiKey: selectedApiKeyEmails,
+		},
+		body: JSON.stringify(subscriberData)
+	  }
+	);
+
+    const dataUpdate = await responseUpdate.json();
+    
+    res.json(dataUpdate);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching data from Campaigner API in update-emails' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
