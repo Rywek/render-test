@@ -117,6 +117,11 @@ const html = `<!DOCTYPE html>
       return subArrays
     }
 
+  </script>
+</body>
+</html>
+`;
+/*
     async function getData(accountid) {
       const listname = document.getElementById('name').value
       const myHeaders = new Headers()
@@ -138,9 +143,9 @@ const html = `<!DOCTYPE html>
         )
         const result = await response.text()
         const list = JSON.parse(result).ListID
-        const concat = '${result}'.split(',')
+        const concat = `${result}`.split(',')
         console.log(result)
-        uploadData.innerHTML = 'List Uploaded: ${concat[1]}'
+        uploadData.innerHTML = `List Uploaded: ${concat[1]}`
         splitLargeArray(listOfEmails).forEach((element) => {
           getEmails(element, list, accountid)
         })
@@ -233,12 +238,12 @@ const html = `<!DOCTYPE html>
         }
         reader.readAsBinaryString(file)
       }
-      emailCountLabel.innerHTML = 'Total emails: ${emailCount}'
+      emailCountLabel.innerHTML = `Total emails: ${emailCount}`
     })
   </script>
 </body>
 </html>
-`;
+`;*/
 
 app.post('/get-lists', async (req, res) => {
   try {
