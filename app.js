@@ -121,7 +121,7 @@ app.post('/get-emails', async (req, res) => {
 	  })
 	  ;
 
-    const response = await fetch(
+   /* const response = await fetch(
       `https://edapi.campaigner.com/v1/Lists/${ListID}/AddEmails`,
       {
         method: 'POST',
@@ -133,12 +133,12 @@ app.post('/get-emails', async (req, res) => {
 
         body: JSON.stringify(subscriberData2),
       }
-    );
+    );*/
 
     const dataUpdate = await responseUpdate.json();
-    const data = await response.json();
+    //const data = await response.json();
 
-    res.json(data);
+    //res.json(data);
     res.json(dataUpdate);
   } catch (error) {
     console.error(error);
