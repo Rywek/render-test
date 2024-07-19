@@ -143,21 +143,21 @@ app.post('/upload-emails', async (req, res) => {
     console.log(ListID);
     console.log(accountID);
 
-	let selectedApiKeyEmails;
+	let selectedApiKeyUpdateEmails;
      switch (accountID){
-      case 582645: selectedApiKeyEmails = apiKeys.devofficekey; break;
-      case 582045: selectedApiKeyEmails = apiKeys.presidentkey; break;
-      case 578195: selectedApiKeyEmails = apiKeys.communcationDinternalkey; break;
-      case 582065: selectedApiKeyEmails = apiKeys.communcationDexternalkey; break;
-      case 588235: selectedApiKeyEmails = apiKeys.alumnigeneralkey; break;
-      case 588260: selectedApiKeyEmails = apiKeys.alumniaroskey; break;
-      case 598700: selectedApiKeyEmails = apiKeys.uointernationalkey; break;
-      case 777832: selectedApiKeyEmails = apiKeys.uOsurveys; break;
-      case 578195: selectedApiKeyEmails = apiKeys.vpacademic; break;
-      case 746765: selectedApiKeyEmails = apiKeys.vrrecherche; break;
-      case 760138: selectedApiKeyEmails = apiKeys.hrmodernisation; break;
-      case 772710: selectedApiKeyEmails = apiKeys.ceremoniesandevents; break;
-      case 776515: selectedApiKeyEmails = apiKeys.leadership; break;
+      case 582645: selectedApiKeyUpdateEmails = apiKeys.devofficekey; break;
+      case 582045: selectedApiKeyUpdateEmails = apiKeys.presidentkey; break;
+      case 578195: selectedApiKeyUpdateEmails = apiKeys.communcationDinternalkey; break;
+      case 582065: selectedApiKeyUpdateEmails = apiKeys.communcationDexternalkey; break;
+      case 588235: selectedApiKeyUpdateEmails = apiKeys.alumnigeneralkey; break;
+      case 588260: selectedApiKeyUpdateEmails = apiKeys.alumniaroskey; break;
+      case 598700: selectedApiKeyUpdateEmails = apiKeys.uointernationalkey; break;
+      case 777832: selectedApiKeyUpdateEmails = apiKeys.uOsurveys; break;
+      case 578195: selectedApiKeyUpdateEmails = apiKeys.vpacademic; break;
+      case 746765: selectedApiKeyUpdateEmails = apiKeys.vrrecherche; break;
+      case 760138: selectedApiKeyUpdateEmails = apiKeys.hrmodernisation; break;
+      case 772710: selectedApiKeyUpdateEmails = apiKeys.ceremoniesandevents; break;
+      case 776515: selectedApiKeyUpdateEmails = apiKeys.leadership; break;
       default: throw new Error('Invalid account ID 2');
     }
 	
@@ -166,7 +166,7 @@ app.post('/upload-emails', async (req, res) => {
       EmailAddress: Emails,
     };
 	
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Import/Subscribers', {
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
