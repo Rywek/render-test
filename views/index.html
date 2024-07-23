@@ -14,7 +14,7 @@
       <label for="582045">582045 Office of the President</label><br />
       <input type="checkbox" id="582645" name="List3" value="DEV" />
       <label for="582645">582645 Development Office</label><br />
-      <input type="checkbox" id="578195" name="List4" value="Coms" />
+      <input type="checkbox" id="578195" name="List1" value="Coms" />
       <label for="578195">578195 Communications Directorate (Internal/Gazette)</label><br />
       <input type="checkbox" id="582065" name="List4" value="Coms" />
       <label for="582065">582065 Communications Directorate (External)</label><br />
@@ -104,15 +104,23 @@
         const result = await response.text()
         const list = JSON.parse(result).ListID
         const concat = `${result}`.split(',')
-		const mycounter = 0;
-        console.log(result)
-        uploadData.innerHTML = `List Uploaded: ${concat[1]}`
+        //console.log(result)
+        /*uploadData.innerHTML = `List Uploaded: ${concat[1]}`
         splitLargeArray(listOfEmails).forEach((element) => {
           uploadEmails(element, list, accountid);
         })
         splitLargeArray(listOfEmails).forEach((element) => {
           getEmails(element, list, accountid);
-        })
+        })*/
+		// Upload all emails first
+		for (const element of splitLargeArray(listOfEmails)) {
+		  await uploadEmails(element, list, accountid)
+		}
+
+		// Then get all emails
+		for (const element of splitLargeArray(listOfEmails)) {
+		  await getEmails(element, list, accountid)
+		}
       } catch (error) {
         console.error(error)
       }
