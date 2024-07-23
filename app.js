@@ -174,7 +174,7 @@ app.post('/upload-emails', async (req, res) => {
 		EmailAddress: Emails,
     };*/
 	
-	const Subscribers = {};
+	const Subscribers = [];
 	// Loop through each email address and create the subscriberData for each
 	Emails.forEach(email => {
 		const subscriberData = { EmailAddress: email };
