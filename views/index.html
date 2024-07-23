@@ -68,7 +68,7 @@
     const form = document.getElementById('campaigner-form')
     const fileUpload = document.getElementById('fileUpload')
 
-    async function splitLargeArray(data) {
+    function splitLargeArray(data) {
       if (data.length <= 1000) {
         return [data]
       }
@@ -107,12 +107,22 @@
 		const mycounter = 0;
         console.log(result)
         uploadData.innerHTML = `List Uploaded: ${concat[1]}`
-        await splitLargeArray(listOfEmails).forEach((element) => {
+		
+        /*splitLargeArray(listOfEmails).forEach((element) => {
           uploadEmails(element, list, accountid);
         })
-        await splitLargeArray(listOfEmails).forEach((element) => {
+        splitLargeArray(listOfEmails).forEach((element) => {
           getEmails(element, list, accountid);
-        })
+        })*/
+		for (const element of splitLargeArray(listOfEmails)) {
+		  uploadEmails(element, list, accountid)
+		}
+
+		// Then get all emails
+		for (const element of splitLargeArray(listOfEmails)) {
+		  getEmails(element, list, accountid)
+		}
+		
       } catch (error) {
         console.error(error)
       }
