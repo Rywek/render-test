@@ -46,9 +46,13 @@
       <div id="progressBar"></div>
     </div>
   </form>
+  <p>Waiting</p>
   <p class="waiting"></p>
+  <p>Uploading Email<p>
   <p class="upload-status-email"></p>
+  <p>Add Emails to List<p>
   <p class="upload-status-name"></p>
+  <p>Create List<p>
   <p class="upload-status-data"></p>
     <script
       src="https://cdn.jsdelivr.net/npm/xlsx@0.16.8/dist/xlsx.full.min.js"
@@ -64,7 +68,7 @@
     const form = document.getElementById('campaigner-form')
     const fileUpload = document.getElementById('fileUpload')
 
-    function splitLargeArray(data) {
+    async function splitLargeArray(data) {
       if (data.length <= 1000) {
         return [data]
       }
@@ -100,12 +104,13 @@
         const result = await response.text()
         const list = JSON.parse(result).ListID
         const concat = `${result}`.split(',')
+		const mycounter = 0;
         console.log(result)
         uploadData.innerHTML = `List Uploaded: ${concat[1]}`
-        splitLargeArray(listOfEmails).forEach((element) => {
+        await splitLargeArray(listOfEmails).forEach((element) => {
           uploadEmails(element, list, accountid);
         })
-        splitLargeArray(listOfEmails).forEach((element) => {
+        await splitLargeArray(listOfEmails).forEach((element) => {
           getEmails(element, list, accountid);
         })
       } catch (error) {
@@ -222,11 +227,13 @@
             })
           })
           console.log(listOfEmails)
+		  
+		  emailCountLabel.innerHTML = `Total emails: ${emailCount}`
           const formattedEmails = emailList.join('<br>')
         }
         reader.readAsBinaryString(file)
       }
-      emailCountLabel.innerHTML = `Total emails: ${emailCount}`
+      //emailCountLabel.innerHTML = `Total emails: ${emailCount}`
     })
   </script>
 </body>
