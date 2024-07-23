@@ -10,8 +10,8 @@ const port = process.env.PORT || 3001;
 const apiKeys = {
   presidentkey: '0afbc589-d478-4c52-a6fa-4821f47530d3',
   communcationDinternalkey: 'd6ed01a6-47df-4e45-9346-c05035c6550d',
-  communcationDexternalkey: '213bc4fb-587a-42c2-aa55-b7120e1fc570',
   devofficekey: '7042d6d1-159b-44ec-8642-564653481a7c',
+  communcationDexternalkey: '213bc4fb-587a-42c2-aa55-b7120e1fc570',
   alumnigeneralkey: '8f1c9864-5e66-4554-9d64-89d601d32663',
   alumniaroskey: '470359df-21c7-4709-b943-b6ee98ba07a8',
   uointernationalkey: '662799d5-a8b6-481e-a519-80a87e648599',
@@ -187,7 +187,7 @@ app.post('/upload-emails', async (req, res) => {
 		  'Content-Type': 'application/json',
 		  ApiKey: selectedApiKeyUpdateEmails,
 		},
-		body: JSON.stringify("Subscribers": Subscribers, null, 2)
+		body: { JSON.stringify("Subscribers:" Subscribers, null, 2) }
 	  }
 	);
 	
