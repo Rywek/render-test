@@ -15,7 +15,7 @@ const apiKeys = {
   alumnigeneralkey: '8f1c9864-5e66-4554-9d64-89d601d32663',
   alumniaroskey: '470359df-21c7-4709-b943-b6ee98ba07a8',
   uointernationalkey: '662799d5-a8b6-481e-a519-80a87e648599',
-  vpacademic: '1cc944e7-7349-4679-868d-7ae0c1a32053',
+  //vpacademic: '1cc944e7-7349-4679-868d-7ae0c1a32053',
   vrrecherche: '06fb3fef-3040-4fd3-8c83-21c5266e5490',
   hrmodernisation: 'ee92f320-a7d3-44de-b514-30ee39047782',
   ceremoniesandevents: 'df09cbc9-14b2-49b0-880d-ca2f371cb25d',
@@ -51,7 +51,7 @@ app.post('/get-lists', async (req, res) => {
       case 588260: selectedApiKey = apiKeys.alumniaroskey; break;
       case 598700: selectedApiKey = apiKeys.uointernationalkey; break;
       case 777832: selectedApiKey = apiKeys.uOsurveys; break;
-      case 578195: selectedApiKey = apiKeys.vpacademic; break;
+      //case 578195: selectedApiKey = apiKeys.vpacademic; break;
       case 746765: selectedApiKey = apiKeys.vrrecherche; break;
       case 760138: selectedApiKey = apiKeys.hrmodernisation; break;
       case 772710: selectedApiKey = apiKeys.ceremoniesandevents; break;
@@ -99,7 +99,7 @@ app.post('/get-emails', async (req, res) => {
       case 588260: selectedApiKeyEmails = apiKeys.alumniaroskey; break;
       case 598700: selectedApiKeyEmails = apiKeys.uointernationalkey; break;
       case 777832: selectedApiKeyEmails = apiKeys.uOsurveys; break;
-      case 578195: selectedApiKeyEmails = apiKeys.vpacademic; break;
+      //case 578195: selectedApiKeyEmails = apiKeys.vpacademic; break;
       case 746765: selectedApiKeyEmails = apiKeys.vrrecherche; break;
       case 760138: selectedApiKeyEmails = apiKeys.hrmodernisation; break;
       case 772710: selectedApiKeyEmails = apiKeys.ceremoniesandevents; break;
@@ -153,14 +153,13 @@ app.post('/upload-emails', async (req, res) => {
       case 588260: selectedApiKeyUpdateEmails = apiKeys.alumniaroskey; break;
       case 598700: selectedApiKeyUpdateEmails = apiKeys.uointernationalkey; break;
       case 777832: selectedApiKeyUpdateEmails = apiKeys.uOsurveys; break;
-      case 578195: selectedApiKeyUpdateEmails = apiKeys.vpacademic; break;
+      //case 578195: selectedApiKeyUpdateEmails = apiKeys.vpacademic; break;
       case 746765: selectedApiKeyUpdateEmails = apiKeys.vrrecherche; break;
       case 760138: selectedApiKeyUpdateEmails = apiKeys.hrmodernisation; break;
       case 772710: selectedApiKeyUpdateEmails = apiKeys.ceremoniesandevents; break;
       case 776515: selectedApiKeyUpdateEmails = apiKeys.leadership; break;
       default: throw new Error('Invalid account ID 2');
     }
-	
 
     /*const subscriberData = {
         "Subscribers": [
@@ -184,10 +183,9 @@ app.post('/upload-emails', async (req, res) => {
 	/* Attempts
 		https://edapi.campaigner.com/v1/Contacts/
 		https://edapi.campaigner.com/v1/Subscribers
-		https://edapi.campaigner.com/v1/Import/AddOrUpdate
 		https://edapi.campaigner.com/v1/Import/Subscribers
+		https://edapi.campaigner.com/v1/Import/AddOrUpdate
 	*/
-	
 	
 	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Import/AddOrUpdate', {
 		method: 'POST',
