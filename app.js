@@ -181,7 +181,7 @@ app.post('/upload-emails', async (req, res) => {
 		Subscribers.push(subscriberData);
 	});
 	
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
+	/*const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
@@ -189,13 +189,13 @@ app.post('/upload-emails', async (req, res) => {
 		},
 		body: JSON.stringify("{Subscribers:" Subscribers "}", null, 2)
 	  }
-	);
+	);*/
 	
 	console.log(JSON.stringify( "Subscribers": Subscribers , null, 2));
 	
-    const dataUpdate = await responseUpdate.json();
+    /*const dataUpdate = await responseUpdate.json();
     
-    res.json(dataUpdate);
+    res.json(dataUpdate);*/
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching data from Campaigner API in update-emails' });
