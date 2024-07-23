@@ -181,7 +181,15 @@ app.post('/upload-emails', async (req, res) => {
 		Subscribers.push(subscriberData);
 	});
 	
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Contacts/', {
+	/* Attempts
+		https://edapi.campaigner.com/v1/Contacts/
+		https://edapi.campaigner.com/v1/Subscribers
+		https://edapi.campaigner.com/v1/Import/AddOrUpdate
+		https://edapi.campaigner.com/v1/Import/Subscribers
+	*/
+	
+	
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Import/AddOrUpdate', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
