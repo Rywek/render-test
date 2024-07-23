@@ -9,13 +9,14 @@ const port = process.env.PORT || 3001;
 
 const apiKeys = {
   presidentkey: '0afbc589-d478-4c52-a6fa-4821f47530d3',
-  communcationDinternalkey: '742fef69-e140-4d75-9dc2-199fd99187aa',
   devofficekey: '7042d6d1-159b-44ec-8642-564653481a7c',
+  communcationDinternalkey: '742fef69-e140-4d75-9dc2-199fd99187aa',
   communcationDexternalkey: '213bc4fb-587a-42c2-aa55-b7120e1fc570',
   alumnigeneralkey: '8f1c9864-5e66-4554-9d64-89d601d32663',
   alumniaroskey: '470359df-21c7-4709-b943-b6ee98ba07a8',
   //uointernationalkey: '662799d5-a8b6-481e-a519-80a87e648599',
   //vpacademic: '1cc944e7-7349-4679-868d-7ae0c1a32053',
+  hr: 'e8cbd86e-1cf4-4984-b2a1-eedcef0db056',
   vrrecherche: '06fb3fef-3040-4fd3-8c83-21c5266e5490',
   hrmodernisation: 'ee92f320-a7d3-44de-b514-30ee39047782',
   ceremoniesandevents: 'df09cbc9-14b2-49b0-880d-ca2f371cb25d',
@@ -53,6 +54,7 @@ app.post('/get-lists', async (req, res) => {
       case 777832: selectedApiKey = apiKeys.uOsurveys; break;
       //case 578195: selectedApiKey = apiKeys.vpacademic; break;
       case 746765: selectedApiKey = apiKeys.vrrecherche; break;
+      case 588280: selectedApiKey = apiKeys.hr; break;
       case 760138: selectedApiKey = apiKeys.hrmodernisation; break;
       case 772710: selectedApiKey = apiKeys.ceremoniesandevents; break;
       case 776515: selectedApiKey = apiKeys.leadership; break;
@@ -101,6 +103,7 @@ app.post('/get-emails', async (req, res) => {
       case 777832: selectedApiKeyEmails = apiKeys.uOsurveys; break;
       //case 578195: selectedApiKeyEmails = apiKeys.vpacademic; break;
       case 746765: selectedApiKeyEmails = apiKeys.vrrecherche; break;
+      case 588280: selectedApiKeyEmails = apiKeys.hr; break;
       case 760138: selectedApiKeyEmails = apiKeys.hrmodernisation; break;
       case 772710: selectedApiKeyEmails = apiKeys.ceremoniesandevents; break;
       case 776515: selectedApiKeyEmails = apiKeys.leadership; break;
@@ -155,6 +158,7 @@ app.post('/upload-emails', async (req, res) => {
       case 777832: selectedApiKeyUpdateEmails = apiKeys.uOsurveys; break;
       //case 578195: selectedApiKeyUpdateEmails = apiKeys.vpacademic; break;
       case 746765: selectedApiKeyUpdateEmails = apiKeys.vrrecherche; break;
+      case 588280: selectedApiKeyUpdateEmails = apiKeys.hr; break;
       case 760138: selectedApiKeyUpdateEmails = apiKeys.hrmodernisation; break;
       case 772710: selectedApiKeyUpdateEmails = apiKeys.ceremoniesandevents; break;
       case 776515: selectedApiKeyUpdateEmails = apiKeys.leadership; break;
