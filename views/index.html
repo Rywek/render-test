@@ -103,8 +103,8 @@
         console.log(result)
         uploadData.innerHTML = `List Uploaded: ${concat[1]}`
         splitLargeArray(listOfEmails).forEach((element) => {
-          uploadEmails(element, list, accountid);
-          getEmails(element, list, accountid);
+          await uploadEmails(element, list, accountid);
+          await getEmails(element, list, accountid);
         })
       } catch (error) {
         console.error(error)
