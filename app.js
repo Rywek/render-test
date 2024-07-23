@@ -85,9 +85,9 @@ app.post('/get-emails', async (req, res) => {
     const Emails = req.body.emailsList;
     const ListID = req.body.listid;
     const accountID = req.body.accountno;
-    console.log(Emails);
+    /*console.log(Emails);
     console.log(ListID);
-    console.log(accountID);
+    console.log(accountID);*/
 
 	let selectedApiKeyEmails;
      switch (accountID){
