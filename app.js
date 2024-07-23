@@ -181,7 +181,7 @@ app.post('/upload-emails', async (req, res) => {
 		Subscribers.push(subscriberData);
 	});
 	
-	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Subscribers', {
+	const responseUpdate = await fetch('https://edapi.campaigner.com/v1/Contacts/', {
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json',
