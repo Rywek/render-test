@@ -107,22 +107,12 @@
 		const mycounter = 0;
         console.log(result)
         uploadData.innerHTML = `List Uploaded: ${concat[1]}`
-		
-        /*splitLargeArray(listOfEmails).forEach((element) => {
+        splitLargeArray(listOfEmails).forEach((element) => {
           uploadEmails(element, list, accountid);
         })
         splitLargeArray(listOfEmails).forEach((element) => {
           getEmails(element, list, accountid);
-        })*/
-		for (const element of splitLargeArray(listOfEmails)) {
-		  uploadEmails(element, list, accountid)
-		}
-
-		// Then get all emails
-		for (const element of splitLargeArray(listOfEmails)) {
-		  getEmails(element, list, accountid)
-		}
-		
+        })
       } catch (error) {
         console.error(error)
       }
@@ -238,12 +228,12 @@
           })
           console.log(listOfEmails)
 		  
-		  emailCountLabel.innerHTML = `Total emails: ${emailCount}`
+		emailCountLabel.innerHTML = `Total emails: ${emailCount}`
           const formattedEmails = emailList.join('<br>')
         }
         reader.readAsBinaryString(file)
       }
-      //emailCountLabel.innerHTML = `Total emails: ${emailCount}`
+      emailCountLabel.innerHTML = `Total emails: ${emailCount}`
     })
   </script>
 </body>
