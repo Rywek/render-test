@@ -201,7 +201,7 @@ app.post('/upload-emails', async (req, res) => {
 	  }
 	);
 	
-	console.log(JSON.stringify({Subscribers: Subscribers}));
+	//console.log(JSON.stringify({Subscribers: Subscribers}));
 	
     const dataUpdate = await responseUpdate.json();
     
