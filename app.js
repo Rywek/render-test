@@ -9,12 +9,12 @@ const port = process.env.PORT || 3001;
 
 const apiKeys = {
   presidentkey: '0afbc589-d478-4c52-a6fa-4821f47530d3',
-  communcationDinternalkey: 'd6ed01a6-47df-4e45-9346-c05035c6550d',
+  communcationDinternalkey: '742fef69-e140-4d75-9dc2-199fd99187aa',
   devofficekey: '7042d6d1-159b-44ec-8642-564653481a7c',
   communcationDexternalkey: '213bc4fb-587a-42c2-aa55-b7120e1fc570',
   alumnigeneralkey: '8f1c9864-5e66-4554-9d64-89d601d32663',
   alumniaroskey: '470359df-21c7-4709-b943-b6ee98ba07a8',
-  uointernationalkey: '662799d5-a8b6-481e-a519-80a87e648599',
+  //uointernationalkey: '662799d5-a8b6-481e-a519-80a87e648599',
   //vpacademic: '1cc944e7-7349-4679-868d-7ae0c1a32053',
   vrrecherche: '06fb3fef-3040-4fd3-8c83-21c5266e5490',
   hrmodernisation: 'ee92f320-a7d3-44de-b514-30ee39047782',
@@ -49,7 +49,7 @@ app.post('/get-lists', async (req, res) => {
       case 582065: selectedApiKey = apiKeys.communcationDexternalkey; break;
       case 588235: selectedApiKey = apiKeys.alumnigeneralkey; break;
       case 588260: selectedApiKey = apiKeys.alumniaroskey; break;
-      case 598700: selectedApiKey = apiKeys.uointernationalkey; break;
+      //case 598700: selectedApiKey = apiKeys.uointernationalkey; break;
       case 777832: selectedApiKey = apiKeys.uOsurveys; break;
       //case 578195: selectedApiKey = apiKeys.vpacademic; break;
       case 746765: selectedApiKey = apiKeys.vrrecherche; break;
@@ -97,7 +97,7 @@ app.post('/get-emails', async (req, res) => {
       case 582065: selectedApiKeyEmails = apiKeys.communcationDexternalkey; break;
       case 588235: selectedApiKeyEmails = apiKeys.alumnigeneralkey; break;
       case 588260: selectedApiKeyEmails = apiKeys.alumniaroskey; break;
-      case 598700: selectedApiKeyEmails = apiKeys.uointernationalkey; break;
+      //case 598700: selectedApiKeyEmails = apiKeys.uointernationalkey; break;
       case 777832: selectedApiKeyEmails = apiKeys.uOsurveys; break;
       //case 578195: selectedApiKeyEmails = apiKeys.vpacademic; break;
       case 746765: selectedApiKeyEmails = apiKeys.vrrecherche; break;
@@ -151,7 +151,7 @@ app.post('/upload-emails', async (req, res) => {
       case 582065: selectedApiKeyUpdateEmails = apiKeys.communcationDexternalkey; break;
       case 588235: selectedApiKeyUpdateEmails = apiKeys.alumnigeneralkey; break;
       case 588260: selectedApiKeyUpdateEmails = apiKeys.alumniaroskey; break;
-      case 598700: selectedApiKeyUpdateEmails = apiKeys.uointernationalkey; break;
+      //case 598700: selectedApiKeyUpdateEmails = apiKeys.uointernationalkey; break;
       case 777832: selectedApiKeyUpdateEmails = apiKeys.uOsurveys; break;
       //case 578195: selectedApiKeyUpdateEmails = apiKeys.vpacademic; break;
       case 746765: selectedApiKeyUpdateEmails = apiKeys.vrrecherche; break;
